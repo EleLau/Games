@@ -10,6 +10,7 @@ red = (255,0,0)
 turqies = (0, 255, 255)
 screen.fill(turqies)
 background = turqies
+#start des Games 
 pygame.init()
 
 #variablen 
@@ -22,13 +23,18 @@ while running:
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT: #möglichkeit zum beenden des Games
             running = False # Schleife beendne
-        if event.type == pygame.KEYDOWN:
+        '''if event.type == pygame.KEYDOWN: # Einzelzuweisung der Tasten
             if event.key == pygame.K_r:
                 background = red
-                
-            elif event.key == pygame.K_t:
-                background = turqies
-            screen.fill(background) #neuen Hintergrund entsprechend der gedrückten Taste
+        elif event.key == pygame.K_t:
+            background = turqies'''
+        # Key zuweisung über Dictonary (paare von Datensetzen ) für Hintergrundfarben
+        key_dict = {pygame.K_k:BLACK, pygame.K_r:red, pygame.K_g:GREEN, pygame.K_b:BLUE,pygame.K_t:turques}
+        # überprüfen ob die gedrückte Taste im Diconary zugewiesen wurden (nur Hintergrundfarbe)
+        if event.key in key_dict:
+        background = key_dict[event.key]
+
+        screen.fill(background) #neuen Hintergrund entsprechend der gedrückten Taste
                 
  # Beenden des Games (nach austreten aus der aaktiven Loop )  
 pygame.quit()
