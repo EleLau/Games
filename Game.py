@@ -1,6 +1,7 @@
 from cmath import rect
 from curses.textpad import rectangle
 import pygame 
+import Startbildschirm
 
 # SETUP von der PiGame Enginee
 screen = pygame.display.set_mode((640,240)) #Fenster erstellen
@@ -39,7 +40,7 @@ while running:
                 background = key_dict[event.key]
 
         screen.fill(background) #neuen Hintergrund entsprechend der gedrückten Taste
-                
+       
  # Beenden des Games (nach austreten aus der aaktiven Loop )  
 pygame.quit()
 
