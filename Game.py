@@ -21,8 +21,12 @@ pygame.init()
 #variablen 
 running = True # laufen des Games solange True
 
+schrift = pygame.font.SysFont("Arial", 30, False, False)#Schrift ausprobiert
+text = schrift.render("Start Game",False, (0,0,0))
+
 # Aktive Schleife des Pygames, die den Inhalt updatet
 while running:
+    Startbildschirm.textZeigen()
     pygame.display.update() # Jeden Zyklus das angezeigte Bild aktualisieren
     # Key press erkennen und ausführen Aktionen resultierender Aktionen 
     for event in pygame.event.get(): 
@@ -40,6 +44,8 @@ while running:
                 background = key_dict[event.key]
 
         screen.fill(background) #neuen Hintergrund entsprechend der gedrückten Taste
+          
  # Beenden des Games (nach austreten aus der aaktiven Loop )  
 pygame.quit()
 
+#Grade geht iwas mit dem Text noch nicht, weiß nicht woran das liegt xD
