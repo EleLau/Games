@@ -2,8 +2,6 @@ from cmath import rect
 from curses.textpad import rectangle
 import pygame 
 
-
-screen = pygame.display.set_mode((640,240))
 caption = "Viel gewinnt"
 pygame.display.set_caption(caption)
 red = (255,0,0)
@@ -27,10 +25,8 @@ while running:
                 background = turqies
             screen.fill(background)
     pygame.draw.rect(screen,red,quadrat)
-                
 
 
-    
 pygame.quit()
 
 
