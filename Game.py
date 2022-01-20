@@ -1,3 +1,5 @@
+from cmath import rect
+from curses.textpad import rectangle
 import pygame 
 
 
@@ -10,7 +12,7 @@ screen.fill(turqies)
 background = turqies
 pygame.init()
 
-
+quadrat = pygame.Rect(0,240,240,200)
 running = True
 
 while running:
@@ -20,11 +22,11 @@ while running:
             running = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_r:
-                background = red
-                
+                background = red 
             elif event.key == pygame.K_t:
                 background = turqies
             screen.fill(background)
+    pygame.draw.rect(screen,red,quadrat)
                 
 
 
