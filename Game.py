@@ -40,8 +40,6 @@ while running:
                 background = key_dict[event.key]
 
         screen.fill(background) #neuen Hintergrund entsprechend der gedrückten Taste
-       
  # Beenden des Games (nach austreten aus der aaktiven Loop )  
 pygame.quit()
-
 
