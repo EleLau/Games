@@ -1,5 +1,6 @@
 from cmath import rect
 from curses.textpad import rectangle
+from typing import Tuple
 import pygame 
 
 
@@ -44,10 +45,13 @@ if showStartScreen :
                 # überprüfen ob die gedrückte Taste im Diconary zugewiesen wurden (nur Hintergrundfarbe)
                 if event.key in key_dict:
                     background = key_dict[event.key]
-            
+            #mausklick für den Startscreen:
+            if event.type == pygame.MOUSEBUTTONDOWN: #wenn die Maus gedrückt wird 
+                x = pygame.mouse.get_pos()[0]   #x position des Mauscursors 
+                y = pygame.mouse.get_pos()[1]   #y ""
+                if x > 300 and x < 500 and y > 300 and y < 335: #check ob der cursor im Feld ist 
+                    showStartScreen = False     #macht den Startbildschirm aus 
             screen.fill(background) #neuen Hintergrund entsprechend der gedrückten Taste
-            
-
 else:
     pass
 # Aktive Schleife des Pygames, die den Inhalt updatet
@@ -73,4 +77,4 @@ while running:
  # Beenden des Games (nach austreten aus der aaktiven Loop )  
 pygame.quit()
 
-#Grade geht iwas mit dem Text noch nicht, weiß nicht woran das liegt xD
+
