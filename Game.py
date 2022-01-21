@@ -2,7 +2,8 @@ from cmath import rect
 from curses.textpad import rectangle
 import pygame 
 import Startbildschirm
-
+ 
+ 
 # SETUP von der PiGame Enginee
 screen = pygame.display.set_mode((640,240)) #Fenster erstellen
 #Fenstertitel
