@@ -1,8 +1,9 @@
 from cmath import rect
 from curses.textpad import rectangle
 import pygame 
-import Startbildschirm
 
+
+pygame.font.init()
 # SETUP von der PiGame Enginee
 screen = pygame.display.set_mode((640,240)) #Fenster erstellen
 #Fenstertitel
@@ -20,13 +21,34 @@ pygame.init()
 
 #variablen 
 running = True # laufen des Games solange True
+showStartScreen = True 
 
 schrift = pygame.font.SysFont("Arial", 30, False, False)#Schrift ausprobiert
 text = schrift.render("Start Game",False, (0,0,0))
+if showStartScreen :
+    #Startbildschirm.startScreenScene()
+     while showStartScreen:
+        screen.blit(text,(60,40))
+        pygame.display.update() # Jeden Zyklus das angezeigte Bild aktualisieren
+        # Key press erkennen und ausführen Aktionen resultierender Aktionen 
+        for event in pygame.event.get(): 
+            if event.type == pygame.QUIT: #möglichkeit zum beenden des Games
+                showStartScreen = False # Schleife beendne
+            if event.type == pygame.KEYDOWN: # Einzelzuweisung der Tasten
 
+                # Key zuweisung über Dictonary (paare von Datensetzen ) für Hintergrundfarben
+                key_dict = {pygame.K_b:black, pygame.K_r:red, pygame.K_g:GREEN,pygame.K_t:turqies}
+                # überprüfen ob die gedrückte Taste im Diconary zugewiesen wurden (nur Hintergrundfarbe)
+                if event.key in key_dict:
+                    background = key_dict[event.key]
+            
+            screen.fill(background) #neuen Hintergrund entsprechend der gedrückten Taste
+            
+
+else:
+    pass
 # Aktive Schleife des Pygames, die den Inhalt updatet
 while running:
-    Startbildschirm.textZeigen()
     pygame.display.update() # Jeden Zyklus das angezeigte Bild aktualisieren
     # Key press erkennen und ausführen Aktionen resultierender Aktionen 
     for event in pygame.event.get(): 
