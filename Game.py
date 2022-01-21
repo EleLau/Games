@@ -5,7 +5,7 @@ import pygame
 
 pygame.font.init()
 # SETUP von der PiGame Enginee
-screen = pygame.display.set_mode((640,240)) #Fenster erstellen
+screen = pygame.display.set_mode((800,600)) #Fenster erstellen
 #Fenstertitel
 caption = "Viel gewinnt"
 pygame.display.set_caption(caption)
@@ -25,10 +25,13 @@ showStartScreen = True
 
 schrift = pygame.font.SysFont("Arial", 30, False, False)#Schrift ausprobiert
 text = schrift.render("Start Game",False, (0,0,0))
+
+quad = pygame.Rect(300,300,200,35)
 if showStartScreen :
     #Startbildschirm.startScreenScene()
      while showStartScreen:
-        screen.blit(text,(60,40))
+        screen.blit(text,(325,300))
+        pygame.draw.rect(screen,black,quad,2)
         pygame.display.update() # Jeden Zyklus das angezeigte Bild aktualisieren
         # Key press erkennen und ausführen Aktionen resultierender Aktionen 
         for event in pygame.event.get(): 
